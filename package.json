@@ -1,0 +1,48 @@
+{
+  "name": "synchronous-ify",
+  "version": "1.0.0-SNAPSHOT",
+  "description": "A minimum package to run asynchronous job synchronously",
+  "main": "src/index.js",
+  "typings": "typings/index.d.ts",
+  "scripts": {
+    "test": "standard --fix test/index.js && node test/index.js",
+    "lint:gulp": "gulp lint",
+    "lint": "npm run lint:gulp -s",
+    "docs:gulp": "gulp docs",
+    "docs": "npm run docs:gulp -s",
+    "styles": "standard --fix",
+    "git:precommit": "npm run docs && git add . && git commit -am \"Precommit made from NPM\" && git push"
+  },
+  "keywords": [
+    "Fiber",
+    "Synchronous",
+    "Asynchronous",
+    "Sync",
+    "Async",
+    "Promise",
+    "Async/Await",
+    "Loli",
+    "Riichi",
+    "Lolization"
+  ],
+  "author": "Riichi_Rusdiana#6815",
+  "license": "SEE LICENSE IN LICENSE",
+  "devDependencies": {
+    "del": "^4.0.0",
+    "eslint": "^5.15.3",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-markdown": "^1.0.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "gulp": "^4.0.0",
+    "gulp-eslint": "^5.0.0",
+    "jsdoc-to-markdown": "^4.0.1",
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "fibers": "^3.1.1",
+    "lodash": "^4.17.11"
+  }
+}
