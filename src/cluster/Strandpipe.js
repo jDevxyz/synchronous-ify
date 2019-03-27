@@ -5,6 +5,7 @@ const packagemeta = require('../../package.json')
 const { TypeError, RangeError } = require('../localization')
 
 const _debugStackTrace = Symbol('debugStackTrace')
+const _check = Symbol('check')
 
 /**
  * @method Pipe
@@ -24,11 +25,11 @@ module.exports = class Strandpipe extends EventEmitter {
     this.version = packagemeta.version
     this.debugHeader = `[Pipeline] [Debug] `
 
-    this.syncjob = (object, fn) => {
+    this.syncjobdif = (object, fn) => {
       return function() {
-        let args = Array.prototype.slice.call(arguments)
-        let result
-        let pipe
+        var args = Array.prototype.slice.call(arguments)
+        var result
+        var pipe
         args.push(function(error, value) {
           this[_debugStackTrace](['Pushing function inside an Array, Stack Trace: ', error, value])
           result = error || value
@@ -36,7 +37,7 @@ module.exports = class Strandpipe extends EventEmitter {
           else pipe = true
         })
     
-        let objectified = this[object]
+        var objectified = this[object]
         objectified[fn].apply(objectified, args)
         if (!pipe) {
           pipe = Pipe.current
@@ -54,14 +55,36 @@ module.exports = class Strandpipe extends EventEmitter {
 
     this.sync = (fn) => {
       var pipe = Pipe.current
-      fn().then(element => {
+      fn.then(element => {
         pipe.run(element)
+        this[_debugStackTrace](['Running pipe.. Value: ' + element])
       }).catch(err => {
         if (err) {
-          pipe.throwInto(err)
+          this[_debugStackTrace](['Throwing error', err])
+          throw new RangeError('SYNCJOB_ERROR', err.stack)
         }
       })
       const result = Pipe.yield()
+      this[_debugStackTrace](['Returning value ', result])
+      return result
+    }
+
+    this.flow = (fnarray) => {
+      if (!this[_check](fnarray, 'array')) throw new TypeError('EMITTED', 'passed argument is not Array!')
+      var pipe = Pipe.current
+      fnarray.forEach((element, index) => {
+        element.then(callback => {
+          pipe.run(callback)
+          this.emit('debug', `${this.debugHeader}Running pipe.. Value: ${callback} from ${element} with index ${index}`)
+        }).catch(err => {
+          if (err) {
+            this.emit('debug', `${this.debugHeader}Throwing error ${err.stack}`)
+            throw new RangeError('SYNCJOB_ERROR', err.stack)
+          }
+        })
+      })
+      const result = Pipe.yield()
+      this[_debugStackTrace](['Returning value', result])
       return result
     }
   }
@@ -74,6 +97,23 @@ module.exports = class Strandpipe extends EventEmitter {
       })
     } else {
       throw new TypeError('EMITTED', 'passed argument is not Array!')
+    }
+  }
+
+  [_check] (data, desired) {
+    switch (desired) {
+      case 'array':
+        return _.isArray(data)
+      case 'string':
+        return _.isString(data)
+      case 'integer':
+        return _.isInteger(data)
+      case 'not a number':
+        return _.isNaN(data)
+      case 'regexp':
+        return _.isRegExp(data)
+      default:
+        break
     }
   }
 }
