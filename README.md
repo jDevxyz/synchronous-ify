@@ -28,7 +28,7 @@ const { Pipe, Strandpipe } = require('synchronous-ify')
 const stream = new Strandpipe()
 Pipe(function() {
   do this
-})
+}).run()
 ```
 
 You can quickly resolve a result from HTTP GET request.
@@ -37,7 +37,7 @@ const fetch = require('node-fetch')
 Pipe(function() { 
     const result = stream.sync(fetch('https://javfor.me'))
     console.log(result)
-})
+}).run()
 ```
 
 Or simply use it to obtains data from database
@@ -48,7 +48,7 @@ Pipe(function() {
   // If any error happened, it will be thrown automatically
   const query = stream.sync(connection.query(`SELECT * FROM levels WHERE userId = '${user.uuid}'`))
   console.log(query)
-})
+}).run()
 ```
 
 WARNING! This example is written without consederation and lack of sleep. Mistakes may exist, and wrong use of library function are possible.
