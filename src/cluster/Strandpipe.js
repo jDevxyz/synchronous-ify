@@ -27,16 +27,16 @@ const _debugStackTrace = Symbol('debugStackTrace')
 const _check = Symbol('check')
 
 /**
- * @method Pipe
  * The base of Strandpipe, consist of method for running and yielding synchronous jobs.
  * Instance of Fibers/Coroutines.
+ * @method Pipe
  */
 exports.Pipe = Pipe
 /**
+ * The source of everything, control the flow of Async/Await and Promises function.
  * @module Strandpipe
  * @extends {EventEmitter}
  * @author Riichi_Rusdiana#6815
- * The source of everything, control the flow of Async/Await and Promises function.
  */
 module.exports = class Strandpipe extends EventEmitter {
   /**
@@ -107,17 +107,18 @@ module.exports = class Strandpipe extends EventEmitter {
     /**
      * If method `.sync()` failed, use `.streamSync()`.
      * This method is specifically used for function that needs to handle error.
+     * They utilize `function(err, value)` instead of `.then()`.
      * If error is called from callback, it will automatically thrown as `RangeError`
      * @param {Function} next A Function/Task that needs to be executed in order to get the Promised value
      * @method
      * @returns {*}
      */
-    this.streamSync = (next) => {
+    this.streamSync = (next, ...args) => {
       this[_debugStackTrace](['Starting a pipe...'])
       var pipe = Pipe.current
       var result
       var async
-      next(function (err, value) {
+      next(...args, function (err, value) {
         if (async === undefined) {
           async = false
           result = value
