@@ -3,6 +3,7 @@ const { EventEmitter } = require('events')
 // Useful to checks for value
 const _ = require('lodash')
 const Pipe = require('fibers')
+const Future = require('fibers/future')
 const packagemeta = require('../../package.json')
 /**
  * @typedef ErrorType OPTIONS (...args)
@@ -33,6 +34,11 @@ const _check = Symbol('check')
  */
 exports.Pipe = Pipe
 /**
+ * The base of Future methods and stuff
+ * @method Future
+ */
+exports.Future = Future
+/**
  * The source of everything, control the flow of Async/Await and Promises function.
  * @module Strandpipe
  * @extends {EventEmitter}
@@ -44,8 +50,8 @@ module.exports = class Strandpipe extends EventEmitter {
    * Consist of function that will be used a lots in the Pipestream
    * @constructor
    */
-  constructor () {
-    super()
+  constructor (...args) {
+    super(...args)
     /**
      * Print annoying fancy logo
      */
@@ -117,27 +123,14 @@ module.exports = class Strandpipe extends EventEmitter {
       this[_debugStackTrace](['Starting a pipe...'])
       var pipe = Pipe.current
       var result
-      var async
       next(...args, function (err, value) {
-        if (async === undefined) {
-          async = false
-          result = value
-          if (err) {
-            this[_debugStackTrace](['Throwing error', err])
-            throw RangeError('SYNCJOB_ERROR', err.stack)
-          }
-          return
-        }
-        if (err) {
-          this[_debugStackTrace](['Throwing error', err])
-          pipe.throwInto(err)
-        } else pipe.run(value)
-        this[_debugStackTrace](['Running pipe.. Value: ' + value])
+        if (err) throw new RangeError('SYNCJOB_ERROR', err.stack)
+        this[_debugStackTrace](['Throwing error', err])
+        pipe.run(value)
+        this[_debugStackTrace](['Running pipe.. Value: ' + result])
       })
-      if (async === undefined) {
-        async = true
-        return Pipe.yield()
-      }
+      this[_debugStackTrace](['Yielding a value from runner..'])
+      result = Pipe.yield()
       this[_debugStackTrace](['Returning value ', result])
       return result
     }
@@ -169,6 +162,8 @@ module.exports = class Strandpipe extends EventEmitter {
       this[_debugStackTrace](['Returning value as array', result])
       return result
     }
+
+    // End of methods
   }
 
   /**

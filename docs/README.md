@@ -2,14 +2,20 @@
 
 <dl>
 <dt><a href="#module_Strandpipe">Strandpipe</a> ⇐ <code>EventEmitter</code></dt>
-<dd></dd>
+<dd><p>The source of everything, control the flow of Async/Await and Promises function.</p>
+</dd>
 </dl>
 
 ## Functions
 
 <dl>
-<dt><a href="#PipeThe base of Strandpipe, consist of method for running and yielding synchronous jobs.Instance of Fibers/Coroutines.">PipeThe base of Strandpipe, consist of method for running and yielding synchronous jobs.Instance of Fibers/Coroutines.()</a></dt>
-<dd></dd>
+<dt><a href="#Pipe">Pipe()</a></dt>
+<dd><p>The base of Strandpipe, consist of method for running and yielding synchronous jobs.
+Instance of Fibers/Coroutines.</p>
+</dd>
+<dt><a href="#Future">Future()</a></dt>
+<dd><p>The base of Future methods and stuff</p>
+</dd>
 </dl>
 
 ## Typedefs
@@ -22,15 +28,17 @@
 <a name="module_Strandpipe"></a>
 
 ## Strandpipe ⇐ <code>EventEmitter</code>
+The source of everything, control the flow of Async/Await and Promises function.
+
 **Extends**: <code>EventEmitter</code>  
-**Author**: Riichi_Rusdiana#6815The source of everything, control the flow of Async/Await and Promises function.  
+**Author**: Riichi_Rusdiana#6815  
 
 * [Strandpipe](#module_Strandpipe) ⇐ <code>EventEmitter</code>
     * [module.exports](#exp_module_Strandpipe--module.exports) ⏏
         * [new module.exports()](#new_module_Strandpipe--module.exports_new)
         * _instance_
             * [.debugHeader](#module_Strandpipe--module.exports+debugHeader)
-            * [.getPipeStream()](#module_Strandpipe--module.exports+getPipeStream) ⇒ <code>Pipe</code>
+            * [.getPipeStream()](#module_Strandpipe--module.exports+getPipeStream) ⇒ [<code>Pipe</code>](#Pipe)
             * [.sync(next)](#module_Strandpipe--module.exports+sync) ⇒ <code>\*</code>
             * [.streamSync(next)](#module_Strandpipe--module.exports+streamSync) ⇒ <code>\*</code>
             * [.flow(fnarray)](#module_Strandpipe--module.exports+flow) ⇒ <code>Array</code>
@@ -54,7 +62,7 @@ Header for debugging
 **Kind**: instance property of [<code>module.exports</code>](#exp_module_Strandpipe--module.exports)  
 <a name="module_Strandpipe--module.exports+getPipeStream"></a>
 
-#### module.exports.getPipeStream() ⇒ <code>Pipe</code>
+#### module.exports.getPipeStream() ⇒ [<code>Pipe</code>](#Pipe)
 Get current running PipestreamWill throw an error if no Pipestream is running
 
 **Kind**: instance method of [<code>module.exports</code>](#exp_module_Strandpipe--module.exports)  
@@ -73,7 +81,7 @@ Run a Task to circulate Asynchronous value into Synchronous valueNeed a running
 <a name="module_Strandpipe--module.exports+streamSync"></a>
 
 #### module.exports.streamSync(next) ⇒ <code>\*</code>
-If method `.sync()` failed, use `.streamSync()`.This method is specifically used for function that needs to handle error.If error is called from callback, it will automatically thrown as `RangeError`
+If method `.sync()` failed, use `.streamSync()`.This method is specifically used for function that needs to handle error.They utilize `function(err, value)` instead of `.then()`.If error is called from callback, it will automatically thrown as `RangeError`
 
 **Kind**: instance method of [<code>module.exports</code>](#exp_module_Strandpipe--module.exports)  
 
@@ -96,9 +104,17 @@ Specialized method to runs an Array of TasksReturns Array of results
 
 #### module.exports~DesiredValue
 **Kind**: inner typedef of [<code>module.exports</code>](#exp_module_Strandpipe--module.exports)  
-<a name="PipeThe base of Strandpipe, consist of method for running and yielding synchronous jobs.Instance of Fibers/Coroutines."></a>
+<a name="Pipe"></a>
 
-## PipeThe base of Strandpipe, consist of method for running and yielding synchronous jobs.Instance of Fibers/Coroutines.()
+## Pipe()
+The base of Strandpipe, consist of method for running and yielding synchronous jobs.Instance of Fibers/Coroutines.
+
+**Kind**: global function  
+<a name="Future"></a>
+
+## Future()
+The base of Future methods and stuff
+
 **Kind**: global function  
 <a name="ErrorType"></a>
 

@@ -76,5 +76,5 @@ jspm_packages/
 # VS Liveshare configuration
 .vsls.json
 
-#Test Folder
+#Test folder
 test/
