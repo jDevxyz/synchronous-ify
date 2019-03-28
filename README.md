@@ -12,6 +12,14 @@ Synchronous-ify is a lightweight simple package consist of function wrappers and
 
 This Module is a SNAPSHOT, hence bugs are expected. Contribute to us via Pull Request.
 
+## Installation
+```sh
+npm install --save github:DiscordBotsDev/synchronous-ify
+```
+
+## Compatibility
+Synchronous-ify relies a lot on node-fibers, hence the compatibility depends on whether node-fibers supports it or not. Check their [list of supported platforms](https://github.com/laverdet/node-fibers#supported-platforms) for more info.
+
 ## Examples
 ### Simple
 This covers how to start a Pipestream session
