@@ -4,7 +4,7 @@ A minimum package to run asynchronous job synchronously
 
 <p align="center">
   <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
-  <a href="https://github.com/standard/standard"><img src="https://cdn.rawgit.com/standard/standard/master/badge.svg" alt="Standard - JavaScript Style Guide"></a>
+  <a href="https://travis-ci.com"><img src="https://travis-ci.com/discordbotsNation/synchronous-ify.svg?branch=master"></a>
 </p> 
 
 ## About
@@ -62,4 +62,7 @@ Synchronous-ify is actively developed by a lots of people on the Community. Unli
 - Improve performance towards singe-core devices
 
 ## Contribution
+<p align="center">
+  <a href="https://github.com/standard/standard"><img src="https://cdn.rawgit.com/standard/standard/master/badge.svg" alt="Standard - JavaScript Style Guide"></a>
+</p>
 Synchronous-ify using GNU AFFERO General Public License, and whoever obtains the code also gain access to every corner of this module. Contribution is much appreciated. Do a pull request once you're done with your changes.
