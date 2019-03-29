@@ -3,8 +3,12 @@
 A minimum package to run asynchronous job synchronously
 
 <p align="center">
-  <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
+  <a href="https://standardjs.com"><img src="https://badgen.net/badge/code%20style/standard/cyan" alt="Standard - JavaScript Style Guide"></a>
   <a href="https://travis-ci.com"><img src="https://travis-ci.com/discordbotsNation/synchronous-ify.svg?branch=master"></a>
+  <a href="https://github.com/discordbotsNation/synchronous-ify/blob/master/LICENSE"><img src="https://badgen.net/github/license/discordbotsNation/synchronous-ify"></a>
+  <a href="https://nodejs.org"><img src="https://badgen.net/badge/platform/nodejs?list=1"></a>
+  <a href="https://github.com/discordbotsNation/synchronous-ify/"><img src="https://badgen.net/github/status/discordbotsNation/synchronous-ify"></a>
+  <a href="https://www.patreon.com/lolization"><img src="https://badgen.net/badge/become/a%20patron/F96854"></a>
 </p> 
 
 ## About
