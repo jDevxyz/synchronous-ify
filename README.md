@@ -9,6 +9,7 @@ A minimum package to run asynchronous job synchronously
   <a href="https://nodejs.org"><img src="https://badgen.net/badge/platform/nodejs?list=1"></a>
   <a href="https://github.com/discordbotsNation/synchronous-ify/"><img src="https://badgen.net/github/status/discordbotsNation/synchronous-ify"></a>
   <a href="https://www.patreon.com/lolization"><img src="https://badgen.net/badge/become/a%20patron/F96854"></a>
+  <a href="https://discordbots.xyz/invite"><img src="https://discordapp.com/api/guilds/411750522345881621/embed.png" alt="Join Discord server"/></a>
 </p> 
 
 ## About
