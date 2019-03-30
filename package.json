@@ -29,6 +29,13 @@
     "discordbots.xyz"
   ],
   "author": "Riichi_Rusdiana#6815",
+  "contributor": [
+	{
+      "name": "Hazmi35",
+      "discord.tag": "Hazmi35#1855",
+      "github": "https://github.com/Hazmi35"
+    }
+  ],
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
     "del": "^4.0.0",
