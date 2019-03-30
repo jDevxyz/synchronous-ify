@@ -36,6 +36,7 @@ Pipe(function() {
 }).run()
 ```
 
+### HTTP Request
 You can quickly resolve a result from HTTP GET request.
 ```js
 const fetch = require('node-fetch')
@@ -45,6 +46,7 @@ Pipe(function() {
 }).run()
 ```
 
+### Database
 Or simply use it to obtains data from database
 ```js
 const mysql = require('mysql')

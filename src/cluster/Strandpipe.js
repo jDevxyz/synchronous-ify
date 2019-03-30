@@ -55,7 +55,7 @@ module.exports = class Strandpipe extends EventEmitter {
     /**
      * Print annoying fancy logo
      */
-    const _initialize = 
+    const _initialize =
     `                                       ` +
     `  OOOO    WW              WW    OOOO   ` +
     `OO    OO   WW            WW   OO    OO ` +

@@ -1,6 +1,6 @@
 {
   "name": "synchronous-ify",
-  "version": "1.0.0-SNAPSHOT",
+  "version": "1.0.2-SNAPSHOT",
   "description": "A minimum package to run asynchronous job synchronously",
   "main": "src/index.js",
   "typings": "typings/index.d.ts",
@@ -24,9 +24,9 @@
     "Loli",
     "Riichi",
     "Lolization",
-	"DiscordBotsNation",
-	"DBN",
-	"discordbots.xyz"
+    "DiscordBotsNation",
+    "DBN",
+    "discordbots.xyz"
   ],
   "author": "Riichi_Rusdiana#6815",
   "license": "SEE LICENSE IN LICENSE",
