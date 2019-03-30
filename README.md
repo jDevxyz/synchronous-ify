@@ -34,21 +34,25 @@ const stream = new Strandpipe()
 Pipe(function() {
   do this
 }).run()
+...
 ```
 
 ### HTTP Request
 You can quickly resolve a result from HTTP GET request.
 ```js
+...
 const fetch = require('node-fetch')
 Pipe(function() { 
-    const result = stream.sync(fetch('https://javfor.me'))
+    const result = stream.sync(stream.sync(fetch('https://httpbin.org/get').json())) // Obtains the JSON result
     console.log(result)
 }).run()
+...
 ```
 
 ### Database
 Or simply use it to obtains data from database
 ```js
+...
 const mysql = require('mysql')
 const connection = mysql.createConnection(...blablabla)
 Pipe(function() {
@@ -56,6 +60,37 @@ Pipe(function() {
   const query = stream.sync(connection.query(`SELECT * FROM levels WHERE userId = '${user.uuid}'`))
   console.log(query)
 }).run()
+...
+```
+
+### Runner (Alpha)
+You can also use runner to quickly jump-and-use Synchronous-ify API.
+The runner will returns an instance of `Strandpipe` as callback. This way, you don't have to construct the stream by yourself.
+```js
+const { Threadify } = require('synchronous-ify')
+Threadify.runner((stream) => {
+  const fetch = require('node-fetch')
+  const result = stream.sync(stream.sync(fetch('https://httpbin.org/get').json()))
+  console.log(result)
+})
+...
+```
+
+### Listener (Alpha)
+Need the value outside of Runner? No worries. Listener will handle that.
+Note that you need to construct the `stream` by yourself.
+```js
+const { Strandpipe, Threadify } = require('synchronous-ify')
+const stream = new Strandpipe()
+Threadify.addListener(stream, () => {
+  const fetch = require('node-fetch')
+  const res = stream.sync(stream.sync(fetch('https://httpbin.org/get')).json())
+  stream.listen('result', res)
+})
+stream.on('resolve:result', (res) => {
+  console.log(res) // you can access the result of node-fetch in here
+})
+...
 ```
 
 WARNING! This example is written without consederation and lack of sleep. Mistakes may exist, and wrong use of library function are possible.
@@ -64,9 +99,9 @@ WARNING! This example is written without consederation and lack of sleep. Mistak
 There's a lots of module wrapper for node-fibers, but why Synchronous-ify?
 Synchronous-ify is actively developed by a lots of people on the Community. Unlike others who dominantly developed in the ancient days of old NodeJS, Synchronous-ify is using latest compatibility of NodeJS 10. Furthermore, this module supports TypeScript as well.
 
-## ToDo List
-- Add more method to handle more difficult task
-- Improve performance towards singe-core devices
+## Synchronous-ify in action
+Here some modules that use Synchronous-ify as their dependency.
+- [node-fiberfetch](https://github.com/discordbotsNation/node-fiberfetch) - [node-fetch](https://github.com/bitinn/node-fetch) wrapper, using Synchronous-ify style.
 
 ## Contribution
 <p align="center">
