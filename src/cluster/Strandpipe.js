@@ -44,7 +44,7 @@ exports.Future = Future
  * @extends {EventEmitter}
  * @author Riichi_Rusdiana#6815
  */
-module.exports = class Strandpipe extends EventEmitter {
+class Strandpipe extends EventEmitter {
   /**
    * Start a Strandpipe class
    * Consist of function that will be used a lots in the Pipestream
@@ -77,9 +77,9 @@ module.exports = class Strandpipe extends EventEmitter {
     this.debugHeader = `[Pipeline] [Debug] `
 
     /**
-     * Get current running Pipestream
-     * Will throw an error if no Pipestream is running
-     * @method
+     * Get current running Pipestream.
+     * Will throw an error if no Pipestream is running.
+     * @method getPipeStream
      * @returns {Pipe}
      */
     this.getPipeStream = () => {
@@ -89,10 +89,20 @@ module.exports = class Strandpipe extends EventEmitter {
     }
 
     /**
-     * Run a Task to circulate Asynchronous value into Synchronous value
-     * Need a running Pipestream, and needs to be placed inside a `Pipe`
+     * Add a listener.
+     * @method listen
+     * @returns {EventEmitter} Listen to an event.
+     */
+    this.listen = (name, resolved) => {
+      return this.emit(`resolve:${name}`, resolved)
+    }
+
+    /**
+     * Run a Task to circulate Asynchronous value into Synchronous value.
+     * Need a running Pipestream, and needs to be placed inside a `Pipe`. Only for `.then()`-able function.
+     * Use `streamSync()` for another type of callback.
      * @param {Function} next A Function/Task that needs to be executed in order to get the Promised value
-     * @method
+     * @method sync
      * @returns {*} The result of running task
      */
     this.sync = (next) => {
@@ -118,7 +128,7 @@ module.exports = class Strandpipe extends EventEmitter {
      * They utilize `function(err, value)` instead of `.then()`.
      * If error is called from callback, it will automatically thrown as `RangeError`
      * @param {Function} next A Function/Task that needs to be executed in order to get the Promised value
-     * @method
+     * @method streamSync
      * @returns {*}
      */
     this.streamSync = (next, ...args) => {
@@ -138,9 +148,10 @@ module.exports = class Strandpipe extends EventEmitter {
     }
 
     /**
-     * Specialized method to runs an Array of Tasks
-     * Returns Array of results
-     * @method
+     * Specialized method to runs an Array of Tasks.
+     * Returns Array of results.
+     * Only for `.then()`-able function.
+     * @method flow
      * @param {Array<Function>}
      * @returns {Array}
      */
@@ -165,14 +176,14 @@ module.exports = class Strandpipe extends EventEmitter {
       return result
     }
 
-    // End of methods
+    // End of internal methods
   }
 
   /**
-   * To run an Array of debugging stack trace
+   * To run an Array of debugging stack trace.
    * @private
-   * @method
-   * @param {Array<String>} array The string that will be sent to the Debugger `.on()` event
+   * @method _debugStackTrace
+   * @param {Array<String>} array The string that will be sent to the Debugger `.on()` event.
    */
   [_debugStackTrace] (array) {
     if (_.isArray(array)) {
@@ -194,9 +205,9 @@ module.exports = class Strandpipe extends EventEmitter {
    * - regexp
    */
   /**
-   * To check wheter a value is a proper `DesiredValue`
+   * To check wheter a value is a proper `DesiredValue`.
    * @private
-   * @method
+   * @method _check
    * @param {*} data
    * @param {DesiredValue} desired
    */
@@ -217,3 +228,5 @@ module.exports = class Strandpipe extends EventEmitter {
     }
   }
 }
+
+module.exports = Strandpipe
