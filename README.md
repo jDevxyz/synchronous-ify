@@ -19,7 +19,7 @@ This Module is a SNAPSHOT, hence bugs are expected. Contribute to us via Pull Re
 
 ## Installation
 ```sh
-npm install --save github:DiscordBotsDev/synchronous-ify
+npm install --save github:discordbotsNation/synchronous-ify
 ```
 
 ## Compatibility
