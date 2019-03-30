@@ -27,7 +27,7 @@ Synchronous-ify relies a lot on node-fibers, hence the compatibility depends on 
 
 ## Examples
 ### Simple
-This covers how to start a Pipestream session
+This covers how to start a Pipestream session.
 ```js
 const { Pipe, Strandpipe } = require('synchronous-ify')
 const stream = new Strandpipe()
