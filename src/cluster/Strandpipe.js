@@ -55,20 +55,21 @@ class Strandpipe extends EventEmitter {
     /**
      * Print annoying fancy logo
      */
-    const _initialize =
-    `                                       ` +
-    `  OOOO    WW              WW    OOOO   ` +
-    `OO    OO   WW            WW   OO    OO ` +
-    `OO    OO    WW          WW    OO    OO ` +
-    `OO    OO     WW   WW   WW     OO    OO ` +
-    `OO    OO      WW W  W WW      OO    OO ` +
-    `  OOOO          W    W          OOOO   ` +
-    `  Starting a Strandpipe...             ` +
-    `  version ${this.version}              ` +
-    `  Running a subset of Pipeline Task... ` +
-    `                                       `
+    const _initialize = [
+      `                                       `,
+      `  OOOO    WW              WW    OOOO   `,
+      `OO    OO   WW            WW   OO    OO `,
+      `OO    OO    WW          WW    OO    OO `,
+      `OO    OO     WW   WW   WW     OO    OO `,
+      `OO    OO      WW W  W WW      OO    OO `,
+      `  OOOO          W    W          OOOO   `,
+      `                                       `,
+      `  Starting a Strandpipe...             `,
+      `  version ${this.version}              `,
+      `  Running a subset of Pipeline Task... `,
+      `                                       `]
 
-    this.emit('debug', _initialize.toString())
+    this[_debugStackTrace](_initialize)
 
     this.version = packagemeta.version
     /**
@@ -176,8 +177,10 @@ class Strandpipe extends EventEmitter {
       return result
     }
 
-    // End of internal methods
+    // End of Internal methods
   }
+
+  // External Private methods.
 
   /**
    * To run an Array of debugging stack trace.
@@ -227,6 +230,9 @@ class Strandpipe extends EventEmitter {
         break
     }
   }
+
+  // End of External Private methods.
 }
 
+// Exports the module
 module.exports = Strandpipe

@@ -1,6 +1,6 @@
 {
   "name": "synchronous-ify",
-  "version": "1.0.2-SNAPSHOT",
+  "version": "1.1.0-SNAPSHOT",
   "description": "A minimum package to run asynchronous job synchronously",
   "main": "src/index.js",
   "typings": "typings/index.d.ts",
@@ -31,10 +31,15 @@
   "author": "Riichi_Rusdiana#6815",
   "contributor": [
 	{
-      "name": "Hazmi35",
-      "discord.tag": "Hazmi35#1855",
-      "github": "https://github.com/Hazmi35"
-    }
+    "name": "Hazmi35",
+    "discord.tag": "Hazmi35#1855",
+    "github": "https://github.com/Hazmi35"
+  },
+  {
+    "name": "Riichi Rusdiana",
+    "discord.tag": "Riichi_Rusdiana#6815",
+    "github": "https://github.com/BillyAddlers"
+  }
   ],
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
