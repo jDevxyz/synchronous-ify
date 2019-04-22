@@ -6,7 +6,7 @@ declare module 'synchronous-ify' {
   export class Strandpipe extends EventEmitter {
     constructor()
 
-    static const version: String
+    static version: String
     public getPipeStream: any
     public sync(next: Function): any
     public streamSync(next: Function): any

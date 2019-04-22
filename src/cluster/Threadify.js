@@ -38,20 +38,6 @@ var modules = module.exports = {
       pipe.run()
     }, ms)
     return Pipe.yield()
-  },
-
-  /**
-   * Create a listener session for a runner.
-   * @param {Strandpipe} stream You need to construct `Strandpipe` outside the Listener.
-   * @param {Function} next The code that will be executed inside a runner.
-   * @returns {void}
-   */
-  addListener: (stream, next) => {
-    return Pipe(() => {
-      stream.current = Pipe.current
-      stream.pipe = Pipe
-      next()
-    }).run()
   }
 }
 

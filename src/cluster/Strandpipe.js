@@ -5,6 +5,7 @@ const _ = require('lodash')
 const Pipe = require('fibers')
 const Future = require('fibers/future')
 const packagemeta = require('../../package.json')
+const check = require('../utils/Check')
 /**
  * @typedef ErrorType OPTIONS (...args)
  * - INVALID_OPTION (property, must)
@@ -25,7 +26,6 @@ const { TypeError, RangeError } = require('../localization')
 
 // Symbol, useful to define private methods
 const _debugStackTrace = Symbol('debugStackTrace')
-const _check = Symbol('check')
 
 /**
  * The base of Strandpipe, consist of method for running and yielding synchronous jobs.
@@ -90,15 +90,6 @@ class Strandpipe extends EventEmitter {
     }
 
     /**
-     * Add a listener.
-     * @method listen
-     * @returns {EventEmitter} Listen to an event.
-     */
-    this.listen = (name, resolved) => {
-      return this.emit(`resolve:${name}`, resolved)
-    }
-
-    /**
      * Run a Task to circulate Asynchronous value into Synchronous value.
      * Need a running Pipestream, and needs to be placed inside a `Pipe`. Only for `.then()`-able function.
      * Use `streamSync()` for another type of callback.
@@ -157,7 +148,7 @@ class Strandpipe extends EventEmitter {
      * @returns {Array}
      */
     this.flow = (fnarray) => {
-      if (!this[_check](fnarray, 'array')) throw new TypeError('EMITTED', 'passed argument is not Array!')
+      if (!check(fnarray, 'array')) throw new TypeError('EMITTED', 'passed argument is not Array!')
       this[_debugStackTrace](['Array received! Starting a pipe...', `Array length is ${fnarray.length}`])
       var pipe = Pipe.current
       var result
@@ -196,38 +187,6 @@ class Strandpipe extends EventEmitter {
       })
     } else {
       throw new TypeError('EMITTED', 'passed argument is not Array!')
-    }
-  }
-
-  /**
-   * @typedef DesiredValue
-   * - array
-   * - string
-   * - integer
-   * - not a number
-   * - regexp
-   */
-  /**
-   * To check wheter a value is a proper `DesiredValue`.
-   * @private
-   * @method _check
-   * @param {*} data
-   * @param {DesiredValue} desired
-   */
-  [_check] (data, desired) {
-    switch (desired) {
-      case 'array':
-        return _.isArray(data)
-      case 'string':
-        return _.isString(data)
-      case 'integer':
-        return _.isInteger(data)
-      case 'not a number':
-        return _.isNaN(data)
-      case 'regexp':
-        return _.isRegExp(data)
-      default:
-        break
     }
   }
 
