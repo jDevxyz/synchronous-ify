@@ -1,10 +1,9 @@
 import { Pipe } from 'stream';
 import { Fiber } from 'fibers';
+import { EventEmitter } from 'events'
+// import Future from 'fibers/future' || Undefinitely
 
 declare module 'synchronous-ify' {
-  import { EventEmitter } from 'events'
-  import Fiber from 'fibers'
-  // import Future from 'fibers/future' || Unefinitely
 
   //==============================================
   // BEGIN  MODULES
@@ -70,6 +69,10 @@ declare module 'synchronous-ify' {
     private _check(data: any, desired: String): Boolean
   }
 
+  class PipeListener extends EventEmitter {
+    listen(name: string, resolved: Function): EventEmitter
+  }
+
   //==============================================
   // END MODULES
   //==============================================
@@ -82,7 +85,7 @@ declare module 'synchronous-ify' {
    * The base of Strandpipe, consist of method for running and yielding synchronous jobs.
    * Instance of Fibers/Coroutines.
    */
-  export var Pipe: Fiber;
+  export function Pipe(callback: Function): Fiber;
 
   //==============================================
   // END GLOBAL FUNCTION
