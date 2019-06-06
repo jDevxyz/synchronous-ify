@@ -27,19 +27,20 @@
   ],
   "author": "Riichi_Rusdiana#6815",
   "contributor": [
-	{
-    "name": "Hazmi35",
-    "discord.tag": "Hazmi35#1855",
-    "github": "https://github.com/Hazmi35"
-  },
-  {
-    "name": "Riichi Rusdiana",
-    "discord.tag": "Riichi_Rusdiana#6815",
-    "github": "https://github.com/BillyAddlers"
-  }
+    {
+      "name": "Hazmi35",
+      "discord.tag": "Hazmi35#1855",
+      "github": "https://github.com/Hazmi35"
+    },
+    {
+      "name": "Riichi Rusdiana",
+      "discord.tag": "Riichi_Rusdiana#6815",
+      "github": "https://github.com/BillyAddlers"
+    }
   ],
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
+    "@types/fibers": "0.0.30",
     "del": "^4.0.0",
     "eslint": "^5.15.3",
     "eslint-config-standard": "^12.0.0",
