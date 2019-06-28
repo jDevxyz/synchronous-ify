@@ -9,7 +9,7 @@ A minimum package to run asynchronous job synchronously
   <a href="https://nodejs.org"><img src="https://badgen.net/badge/platform/nodejs?list=1"></a>
   <a href="https://github.com/discordbotsNation/synchronous-ify/"><img src="https://badgen.net/github/status/discordbotsNation/synchronous-ify"></a>
   <a href="https://www.patreon.com/lolization"><img src="https://badgen.net/badge/become/a%20patron/F96854"></a>
-  <a href="https://discordbots.xyz/invite"><img src="https://discordapp.com/api/guilds/411750522345881621/embed.png" alt="Join Discord server"/></a>
+  <a href="https://discordapp.com/invite/pFQXau5"><img src="https://discordapp.com/api/guilds/440394363894235136/embed.png" alt="Join Discord server"/></a>
 </p> 
 
 ## About
@@ -102,8 +102,11 @@ Synchronous-ify is actively developed by a lots of people on the Community. Unli
 Here some modules that use Synchronous-ify as their dependency.
 - [node-fiberfetch](https://github.com/discordbotsNation/node-fiberfetch) - [node-fetch](https://github.com/bitinn/node-fetch) wrapper, using Synchronous-ify style.
 
+## License
+synchronous-ify is licensed under the [GNU AGPL-3.0](./LICENSE) © [J-Dev](https://j-dev.xyz)
+
 ## Contribution
 <p align="center">
   <a href="https://github.com/standard/standard"><img src="https://cdn.rawgit.com/standard/standard/master/badge.svg" alt="Standard - JavaScript Style Guide"></a>
 </p>
-Synchronous-ify using GNU AFFERO General Public License, and whoever obtains the code also gain access to every corner of this module. Contribution is much appreciated. Do a pull request once you're done with your changes.
+Contribution is much appreciated. Do a pull request once you're done with your changes. Don't forget to put specifically which part you commited, and why. Open issue when you find something wrong with our package.
