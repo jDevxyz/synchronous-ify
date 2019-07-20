@@ -101,6 +101,7 @@ Synchronous-ify is actively developed by a lots of people on the Community. Unli
 ## Synchronous-ify in action
 Here some modules that use Synchronous-ify as their dependency.
 - [node-fiberfetch](https://github.com/discordbotsNation/node-fiberfetch) - [node-fetch](https://github.com/bitinn/node-fetch) wrapper, using Synchronous-ify style.
+- [Discord-Template](https://github.com/skymunn/Discord-Template/) - A TypeScript-Discord.JS bootstrapper project.
 
 ## License
 synchronous-ify is licensed under the [GNU AGPL-3.0](./LICENSE) © [J-Dev](https://j-dev.xyz)
