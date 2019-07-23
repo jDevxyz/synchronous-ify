@@ -1,3 +1,8 @@
+/*
+ *   Copyright (c) 2019 Billy Addlers (Riichi Rusdiana)<finnsonalca123@gmail.com>
+ *   All rights reserved.
+ */
+
 const Strandpipe = require('./Strandpipe')
 const Pipe = require('fibers')
 const Future = require('fibers/future')

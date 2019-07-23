@@ -1,3 +1,8 @@
+/*
+ *   Copyright (c) 2019 Billy Addlers (Riichi Rusdiana)<finnsonalca123@gmail.com>
+ *   All rights reserved.
+ */
+
 // Emits debug session, LOL XD
 const { EventEmitter } = require('events')
 // Useful to checks for value

@@ -18,6 +18,16 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@types/fibers@0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@types/fibers/-/fibers-0.0.30.tgz#7fc7b9a9a14cb9a9e20416011b16195400d485b8"
+  integrity sha512-kySEl0vHkv4sUSSo9GvHoAXVnXJpo1NRzct7ma2ddrgx6KLOeYC8DmF6mWjA7d53wvnSoqildgSl9LDlODLhzg==
+
+"@types/node@^12.0.5":
+  version "12.6.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.8.tgz#e469b4bf9d1c9832aee4907ba8a051494357c12c"
+  integrity sha512-aX+gFgA5GHcDi89KG5keey2zf0WfZk/HAQotEamsK2kbey+8yGKcson0hbK8E+v0NArlCJQCqMP161YhV6ZXLg==
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"

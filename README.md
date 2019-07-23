@@ -4,10 +4,10 @@ A minimum package to run asynchronous job synchronously
 
 <p align="center">
   <a href="https://standardjs.com"><img src="https://badgen.net/badge/code%20style/standard/cyan" alt="Standard - JavaScript Style Guide"></a>
-  <a href="https://travis-ci.com"><img src="https://travis-ci.com/discordbotsNation/synchronous-ify.svg?branch=master"></a>
-  <a href="https://github.com/discordbotsNation/synchronous-ify/blob/master/LICENSE"><img src="https://badgen.net/github/license/discordbotsNation/synchronous-ify"></a>
+  <a href="https://travis-ci.com"><img src="https://travis-ci.com/jDevxyz/synchronous-ify.svg?branch=master"></a>
+  <a href="https://github.com/jDevxyz/synchronous-ify/blob/master/LICENSE"><img src="https://badgen.net/github/license/jDevxyz/synchronous-ify"></a>
   <a href="https://nodejs.org"><img src="https://badgen.net/badge/platform/nodejs?list=1"></a>
-  <a href="https://github.com/discordbotsNation/synchronous-ify/"><img src="https://badgen.net/github/status/discordbotsNation/synchronous-ify"></a>
+  <a href="https://github.com/jDevxyz/synchronous-ify/"><img src="https://badgen.net/github/status/jDevxyz/synchronous-ify"></a>
   <a href="https://www.patreon.com/lolization"><img src="https://badgen.net/badge/become/a%20patron/F96854"></a>
   <a href="https://discordapp.com/invite/pFQXau5"><img src="https://discordapp.com/api/guilds/440394363894235136/embed.png" alt="Join Discord server"/></a>
 </p> 
