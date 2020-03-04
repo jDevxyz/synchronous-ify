@@ -1,5 +1,5 @@
 <!-- markdownlint-disable-->
-# Synchronous-ify
+# Synchronous-ify (Looking for a contributor!)
 A minimum package to run asynchronous job synchronously
 
 <p align="center">
